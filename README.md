@@ -2,6 +2,8 @@
 
 A signup returns a random token **once**. The database stores only the SHA-256 hash of that token. Confirming hashes the token the caller sent and looks up that hash.
 
+Where the raw token stops and the hash begins is in [docs/architecture.md](docs/architecture.md).
+
 After a successful confirm the hash is cleared, so the same token cannot be used again. An unknown token and a used token both return `404`. The response never contains the hash.
 
 ## Run
